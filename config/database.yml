@@ -1,0 +1,29 @@
+default: &default
+  adapter:  postgresql
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+  host:     <%= ENV["DATABASE_HOST"] %>
+  pool: 5
+  timeout: 5000
+
+staging:
+  <<: *default
+  database: pushbit
+  sslmode: 'verify-full'
+  sslrootcert: 'config/ca/rds.pem'
+
+development:
+  <<: *default
+  database: development
+
+test:
+  <<: *default
+  database: test
+
+ci:
+  database: circle_ruby_test
+  timeout: 5000
+  pool: 5
+  username: ubuntu
+  adapter: postgresql
+  host: localhost
