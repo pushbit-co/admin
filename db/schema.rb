@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151220234606) do
+ActiveRecord::Schema.define(:version => 20151226172116) do
 
   create_table "actions", :force => true do |t|
     t.string   "kind",         :limit => nil
@@ -168,6 +168,18 @@ ActiveRecord::Schema.define(:version => 20151220234606) do
   add_index "repos", ["github_full_name"], :name => "index_repos_on_github_full_name", :unique => true
   add_index "repos", ["github_id"], :name => "index_repos_on_github_id", :unique => true
 
+  create_table "sequential", :force => true do |t|
+    t.string   "model",       :limit => nil
+    t.string   "column",      :limit => nil
+    t.string   "scope",       :limit => nil
+    t.string   "scope_value", :limit => nil
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sequential", ["model", "column", "scope", "scope_value"], :name => "index_sequential_on_model_and_column_and_scope_and_scope_value", :unique => true
+
   create_table "tasks", :force => true do |t|
     t.integer  "number",                          :default => 0
     t.integer  "repo_id"
@@ -185,6 +197,7 @@ ActiveRecord::Schema.define(:version => 20151220234606) do
     t.integer  "trigger_id"
     t.string   "reason",           :limit => nil
     t.integer  "behavior_id"
+    t.integer  "sequential_id"
   end
 
   add_index "tasks", ["container_id"], :name => "index_tasks_on_container_id"
