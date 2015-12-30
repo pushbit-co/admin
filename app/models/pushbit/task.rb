@@ -100,7 +100,9 @@ module Pushbit
 
     def container
       return nil unless container_id
-      Docker::Container.get(container_id)
+      ::Docker::Container.get(container_id)
+    rescue Docker::Error::NotFoundError
+      nil
     end
 
     private
