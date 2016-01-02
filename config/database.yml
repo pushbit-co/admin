@@ -12,6 +12,10 @@ staging:
   sslmode: 'verify-full'
   sslrootcert: 'config/ca/rds.pem'
 
+production:
+  url: <%= ENV["DATABASE_URL"]  %>
+  pool: 50
+
 development:
   <<: *default
   database: development
