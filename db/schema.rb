@@ -180,6 +180,18 @@ ActiveRecord::Schema.define(:version => 20151226172116) do
 
   add_index "sequential", ["model", "column", "scope", "scope_value"], :name => "index_sequential_on_model_and_column_and_scope_and_scope_value", :unique => true
 
+  create_table "subscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "repo_id"
+    t.string   "stripe_subscription_id", :limit => nil
+    t.decimal  "price"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  add_index "subscriptions", ["repo_id"], :name => "index_subscriptions_on_repo_id"
+  add_index "subscriptions", ["user_id"], :name => "index_subscriptions_on_user_id"
+
   create_table "tasks", :force => true do |t|
     t.integer  "number",                          :default => 0
     t.integer  "repo_id"
@@ -221,6 +233,7 @@ ActiveRecord::Schema.define(:version => 20151226172116) do
     t.datetime "last_synchronized_at"
     t.boolean  "beta",                                :default => false
     t.string   "token_scopes",         :limit => nil
+    t.string   "stripe_customer_id",   :limit => nil
   end
 
   add_index "users", ["github_id"], :name => "index_users_on_github_id"
