@@ -32,6 +32,8 @@ gem "meta_search", '>= 1.1.0.pre'
 # Use unicorn as the app server
 gem 'unicorn'
 
+gem "sentry-raven"
+
 # Deploy with Capistrano
 # gem 'capistrano'
 
