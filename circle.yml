@@ -26,7 +26,7 @@ test:
 
 dependencies:
   post: 
-    - bundle exec rake assets:precompile
+    - RACK_ENV=ci bundle exec rake assets:precompile
 
 deployment:
   production:
