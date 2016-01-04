@@ -22,11 +22,8 @@ database:
 
 test:
   override:
-    - RACK_ENV=ci bundle exec rspec --format progress 
-
-dependencies:
-  post: 
     - RACK_ENV=ci bundle exec rake assets:precompile
+    - RACK_ENV=ci bundle exec rspec --format progress 
 
 deployment:
   production:
