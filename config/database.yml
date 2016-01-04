@@ -15,6 +15,7 @@ staging:
 production:
   adapter:  postgresql
   url: <%= ENV["DATABASE_URL"]  %>
+  database: <%= ENV['DATABASE_NAME'] %>
   pool: 50
 
 development:
