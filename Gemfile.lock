@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/getsentry/raven-ruby.git
+  revision: a671fa540f10120196443903dae6ed9bcb014f2b
+  specs:
+    sentry-raven (0.16.0.dev0)
+      faraday (>= 0.7.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -165,8 +172,6 @@ GEM
       railties (~> 3.2.0)
       sass (>= 3.1.10)
       tilt (~> 1.3)
-    sentry-raven (0.15.2)
-      faraday (>= 0.7.6)
     sidekiq (4.0.1)
       concurrent-ruby (~> 1.0)
       connection_pool (~> 2.2, >= 2.2.0)
@@ -212,7 +217,7 @@ DEPENDENCIES
   rails (= 3.2.2)
   rspec-rails (~> 3.0)
   sass-rails (~> 3.2.3)
-  sentry-raven
+  sentry-raven!
   sidekiq
   sinatra
   therubyracer
