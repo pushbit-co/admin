@@ -1,8 +1,4 @@
 module Pushbit
-  class Helpers
-    include ViewHelpers
-  end
-  
   class LineComment
     attr_reader :discoveries, :line, :file
 
