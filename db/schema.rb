@@ -174,8 +174,8 @@ ActiveRecord::Schema.define(:version => 20151226172116) do
     t.string   "scope",       :limit => nil
     t.string   "scope_value", :limit => nil
     t.integer  "value"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "sequential", ["model", "column", "scope", "scope_value"], :name => "index_sequential_on_model_and_column_and_scope_and_scope_value", :unique => true
